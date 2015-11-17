@@ -1,0 +1,18 @@
+ <?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+ <hibernate-mapping>
+ 	<class name="net.javabeat.hibernate.Person" table="person">
+ 		<id name="personId" type="java.lang.Long">
+ 			<column name="PERSON_ID" />
+ 			<generator class="native" />
+ 		</id>
+
+ 		<property name="name" type="string">
+ 			<column name="NAME" length="10" not-null="true" unique="true" />
+ 		</property>
+ 		<one-to-one name="address" class="net.javabeat.hibernate.Address"
+ 			cascade="save-update"></one-to-one>
+ 	</class>
+</hibernate-mapping>
